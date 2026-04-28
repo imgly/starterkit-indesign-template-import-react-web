@@ -32,7 +32,7 @@
  */
 
 import CreativeEngine from '@cesdk/engine';
-import { IDMLParser, addGoogleFontsAssetLibrary } from '@imgly/idml-importer';
+import { IDMLParser, addGfontsAssetLibrary } from '@imgly/idml-importer';
 import type { LogMessage } from '@imgly/idml-importer';
 
 /**
@@ -101,7 +101,7 @@ export async function importIdmlFile(
     });
 
     // Add Google Fonts support
-    await addGoogleFontsAssetLibrary(engine);
+    await addGfontsAssetLibrary(engine);
 
     // Create XML parser function for IDML parsing
     // IDML files are ZIP archives containing XML documents
