@@ -32,13 +32,15 @@
  */
 
 import CreativeEngine from '@cesdk/engine';
-import { IDMLParser, addGoogleFontsAssetLibrary } from '@imgly/idml-importer';
+import { IDMLParser, addGfontsAssetLibrary } from '@imgly/idml-importer';
 import type { LogMessage } from '@imgly/idml-importer';
 
 /**
  * Configuration options for IDML import.
  */
 export interface IdmlImportConfig {
+  /** CE.SDK license key */
+  license?: string;
   /** Base URL for CE.SDK assets (for local development) */
   baseURL?: string;
   /** Target width for preview image (default: 1000) */
@@ -90,18 +92,24 @@ export async function importIdmlFile(
   fileName: string,
   config: IdmlImportConfig = {}
 ): Promise<IdmlImportResult> {
-  const { baseURL, previewWidth = 1000, previewHeight = 1000 } = config;
+  const {
+    license,
+    baseURL,
+    previewWidth = 1000,
+    previewHeight = 1000
+  } = config;
 
   let engine: CreativeEngine | null = null;
 
   try {
     // Initialize headless engine for processing
     engine = await CreativeEngine.init({
+      ...(license && { license }),
       ...(baseURL && { baseURL })
     });
 
     // Add Google Fonts support
-    await addGoogleFontsAssetLibrary(engine);
+    await addGfontsAssetLibrary(engine);
 
     // Create XML parser function for IDML parsing
     // IDML files are ZIP archives containing XML documents
