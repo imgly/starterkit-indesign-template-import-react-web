@@ -11,7 +11,7 @@
   "dependencies": {
     "@cesdk/cesdk-js": "latest",
     "@cesdk/engine": "latest",
-    "@imgly/idml-importer": "1.2.2",
+    "@imgly/idml-importer": "1.4.0",
     "classnames": "^2.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

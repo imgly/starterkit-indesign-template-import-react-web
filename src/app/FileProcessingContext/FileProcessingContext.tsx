@@ -90,6 +90,7 @@ export function FileProcessingContextProvider({
 
         // Import IDML file using the functional API
         const importResult = await importIdmlFile(blob, fileName, {
+          license: editorConfig.license,
           baseURL: editorConfig.baseURL
         });
 

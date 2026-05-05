@@ -146,7 +146,6 @@ body {
 }
 
 
-
 #root {
   width: 100%;
   min-height: calc(100vh - 12px);
@@ -154,7 +153,6 @@ body {
   flex-direction: column;
   padding: 6px;
 }
-
 
 /* ============================================================================
  * Buttons
